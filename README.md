@@ -1,3 +1,5 @@
+## This is a fork of the original DoubletFinder with BPCell compatibility!
+
 ~~ Announcement (11/24/21) ~~
 I'm now a postdoc at Stanford and my UCSF email will be decommissioned soon. I also only check my github repos about once per month, so please reach out directly at cmcginni@stanford[dot]edu if you run into any issues. 
 
