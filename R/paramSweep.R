@@ -18,6 +18,7 @@
 #' contains pANN information for artificial doublets.
 #' @author Chris McGinnis
 #' @importFrom parallel makeCluster stopCluster  mclapply
+#' @import Matrix
 #' @export
 #' @examples
 #' data(pbmc_small)
@@ -60,6 +61,8 @@ paramSweep <- function(seu, PCs=1:10, sct = FALSE, num.cores=1) {
 	# colnames(data) <- real.cells
     n.real.cells <- ncol(data)
   }
+
+  data <- as(seu[["RNA"]]$counts[, real.cells], "dgCMatrix")
 
   ## Iterate through pN, computing pANN vectors at varying pK
   #no_cores <- detectCores()-1

@@ -32,7 +32,8 @@ Imports:
     parallel,
     ROCR,
     Seurat,
-    SeuratObject
+    SeuratObject,
+    Matrix
 Suggests:
     testthat
 Encoding: UTF-8

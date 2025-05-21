@@ -37,6 +37,7 @@
 #' @importFrom Seurat GetAssayData Cells CreateSeuratObject NormalizeData
 #'   FindVariableFeatures ScaleData RunPCA SCTransform
 #' @importFrom SeuratObject LayerData
+#' @import Matrix
 #' @examples
 #'
 #' data(pbmc_small)
@@ -80,7 +81,7 @@ doubletFinder <- function(seu,
     } else {
          counts <- GetAssayData(object = seu, assay = "RNA", slot = "counts")
     }
-    data <- counts[, real.cells]
+    data <- as(counts[, real.cells], "dgCMatrix")
     n_real.cells <- length(real.cells)
     n_doublets <- round(n_real.cells/(1 - pN) - n_real.cells)
     print(paste("Creating",n_doublets,"artificial doublets...",sep=" "))
